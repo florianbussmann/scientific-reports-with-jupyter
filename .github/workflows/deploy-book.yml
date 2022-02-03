@@ -43,3 +43,22 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_build/html
+    
+    # Build LaTeX file for the book
+    - name: Generate LaTeX file
+      run: |
+        jupyter-book build . --builder latex
+    
+    # Generate PDF using TeXLive distribution
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        working_directory: ./_build/latex/
+        root_file: book.tex
+
+    # Push the book's PDF to workflow page
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: PDF
+        path: ./_build/latex/book.pdf
