@@ -35,4 +35,4 @@ sphinx:
   config:
     latex_additional_files: ["theme/jupyterBook.cls"]
     latex_elements:
-      extraclassoptions: oneside # not passed to sphinxmanual => additional change in theme/jupyterBook.cls
+      extraclassoptions: oneside
