@@ -15,7 +15,7 @@
 \RequirePackage{pgfplots}
 \RequirePackage{bbm}
 \def\sphinxdocclass{report}
-\LoadClass{sphinxmanual}
+\LoadClass[oneside]{sphinxmanual}
 \RequirePackage[strict]{changepage}
 
 \setlength{\textwidth}{17.5cm}
