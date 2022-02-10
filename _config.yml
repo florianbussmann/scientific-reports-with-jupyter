@@ -42,3 +42,46 @@ sphinx:
       fvset: ''
       geometry: \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
       inputenc: \usepackage[utf8]{inputenc}
+      maketitle: |
+        {
+          \setlength{\parindent}{0pt}
+          \thispagestyle{plain}
+          {
+            \fontsize{18}{20}\selectfont\raggedright 
+            \maketitle  % title \par  
+          }
+          {
+            \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
+            \sphinxstylestrong{\authorfont Florian Bussmann} \hskip 15pt \emph{\small Münster University of Applied Sciences}   
+            \vskip 6pt\relax \today
+          }
+        }
+      tableofcontents: | # Replace TOC with abstract for article
+        \begin{abstract}
+            \hbox{\vrule height .2pt width 39.14pc}
+            \noindent This document is generated using Markdown files and jupyter notebooks. Replication files are available
+            on GitHub (\url{https://github.com/florianbussmann/scientific-reports-with-jupyter}).
+            \vskip 8.5pt \noindent \emph{Keywords}: jupyter, markdown \par
+            \hbox{\vrule height .2pt width 39.14pc}
+        \end{abstract}
+      preamble: |
+        \makeatletter
+        \def\maketitle{%
+          \newpage
+            {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+        }
+        \makeatother
+
+        \newcommand*{\authorfont}{\fontencoding{T1}\fontfamily{phv}\selectfont}
+
+        \usepackage{abstract}
+        \renewcommand{\abstractname}{}    % clear the title
+        \renewcommand{\absnamepos}{empty} % originally center
+
+        \renewenvironment{abstract}
+        {{%
+            \setlength{\leftmargin}{0mm}
+            \setlength{\rightmargin}{\leftmargin}%
+          }%
+          \relax}
+        {\endlist}
