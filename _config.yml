@@ -6,6 +6,10 @@ author: The Jupyter Book Community
 copyright: "2022"
 logo: logo.png
 
+# Exclude notebooks in hidden folders (e.g. in .github or .venv) that would be built even if they are not specified in the TOC
+exclude_patterns:
+- .venv/*
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
